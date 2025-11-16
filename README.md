@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h3>Name: NITHISHKUMAR S </h3>
+<h3>Register Number: 212223240109 </h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -55,6 +55,34 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
 </ol></B>
 
 <hr>
+
+## program
+```PYTHON
+from collections import defaultdict
+
+def dfs(g, node, visited, path):
+    path.append(node)
+    visited[node] = True
+    for nbr in g[node]:
+        if not visited[nbr]:
+            dfs(g, nbr, visited, path)
+    return path
+
+g = defaultdict(list)
+n, e = map(int, input().split())
+
+for _ in range(e):
+    u, v = input().split()
+    g[u].append(v)
+    g[v].append(u)
+
+start = input()
+visited = defaultdict(bool)
+path = []
+result = dfs(g, start, visited, path)
+print(result)
+
+```
 <h3>Sample Input</h3>
 <hr>
 8 9 <BR>
@@ -73,6 +101,9 @@ F H <BR>
 ['A', 'B', 'E', 'D', 'C', 'G', 'F', 'H']
 
 <hr>
+<h3>OUTPUT</h3>
+
+<img width="272" height="132" alt="Screenshot 2025-08-22 144400" src="https://github.com/user-attachments/assets/1e5da2da-a65b-4253-9977-6919b922c34a" />
 
 <hr>
 <h3>Sample Input</h3>
@@ -89,6 +120,10 @@ F H <BR>
 ['0', '1', '2', '3', '4']
 
 <hr>
+
+## OUTPUT
+<img width="460" height="224" alt="Screenshot 2025-08-22 145258" src="https://github.com/user-attachments/assets/89b7b073-a9a9-4231-ab62-adf6fd74be22" />
+
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
